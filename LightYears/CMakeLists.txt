@@ -23,8 +23,10 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(${SFML_LIB_NAME})
     
 # Define target name variable
-set(LIGHT_YEARS_GAME_TARGET_NAME LightYearsGame)
+set(LIGHT_YEARS_ENGINE_TARGET_NAME LightYearsGame)
+set(LIGHT_YEARS_GAME_TARGET_NAME LightYearsEngine)
 
+add_subdirectory(LightYearsEngine)
 add_subdirectory(LightYearsGame)
 
 

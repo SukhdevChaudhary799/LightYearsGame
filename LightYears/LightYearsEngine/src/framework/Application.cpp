@@ -25,11 +25,11 @@ void Application::Run()
             if (event->is<sf::Event::Closed>())
             mWindow.close();
         }
-        float frameDeltaTime = mTickClock.restart().asSeconds();;
+        float frameDeltaTime = mTickClock.restart().asSeconds();
         accumulatedTime += frameDeltaTime;
         while (accumulatedTime >= targetDeltaTime){
             accumulatedTime -= targetDeltaTime;
-            Tick(targetDeltaTime);
+            TickInternals(targetDeltaTime);
             RenderInternals();
         }
         // std::cout << "Ticking with framerate: " << 1.0f / frameDeltaTime << std::endl;
@@ -37,8 +37,9 @@ void Application::Run()
     }
 }
 
-void Application::Tick(float deltaTime){
+void Application::TickInternals(float deltaTime){
     // std::cout << "Ticking with framerate: " << 1.0f / deltaTime << std::endl;
+    Tick(deltaTime);
 }
 
 void Application::RenderInternals(){
@@ -64,5 +65,8 @@ void Application::Render(){
     mWindow.draw(circ);
 }
 
+void Application::Tick(float deltaTime){
+
+}
 
 
